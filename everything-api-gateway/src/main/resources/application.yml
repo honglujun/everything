@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: everything-api-gateway
+
+server:
+  port: 8089
+
+eureka:
+  instance:
+    #在eureka客户端中显示ip地址加端口号
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+#/everything-product/list/id=1
+#自定义路由映射
+zuul:
+  routes:
+    everything-product: /everythingapigateway/product/**
+    everything-order: /ecoapigateway/order/**
+  #统一入口为上面的配置，其他入口忽略
+  ignored-patterns: /everything-*/**
+  #忽略整个服务，对外提供接口
+  #ignored-services: product-service

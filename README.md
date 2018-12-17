@@ -31,7 +31,7 @@
 │  │
 │  ├─everything-order-------------------------微服务二(没想好做什么)
 │  │
-│  ├─everything-api-getway--------------------微服务网关
+│  ├─everything-api-gateway--------------------微服务网关
 │  │
 │  ├─everything-config------------------------微服务配置中心(以后用Apollo试试)
 │  │

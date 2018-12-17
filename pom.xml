@@ -10,6 +10,7 @@
     <version>1.0</version>
 
     <modules>
+        <module>everything-api-gateway</module>
         <module>everything-common</module>
         <module>everything-eureka</module>
         <module>everything-product</module>
