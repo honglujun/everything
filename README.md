@@ -7,7 +7,7 @@
     maven：apache-maven-3.5.4
 项目的框架使用的版本：(按spring官方文档来的)
     springcloud：Finchley.SR2
-    springboot：2.0.6
+    springboot：2.0.6.RELEASE
     spring-cloud-netflix：2.0.2.RELEASE（包含了Eureka,Hystrix,Ribbon,Zuul）
     spring-cloud-bus: 2.0.0.RELEASE
     spring-cloud-config: 2.0.2.RELEASE
