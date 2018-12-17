@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: everything-order
+
+server:
+  port: 8082
+
+eureka:
+  instance:
+    #在eureka客户端中显示ip地址加端口号
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
