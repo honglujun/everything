@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * 服务与服务，系统内部信息交互实体
+ *
  * @author win10
  */
 public class ProductDto implements Serializable {

@@ -566,7 +566,8 @@ public enum ErrorCodeEnum {
     /**
      * Tpc 100500015 error code enum.
      */
-    TPC100500015(10050015, "消息PID不能为空, messageKey=%s"),;
+    TPC100500015(10050015, "消息PID不能为空, messageKey=%s"),
+    ;
 
     private int code;
     private String msg;
@@ -598,7 +599,6 @@ public enum ErrorCodeEnum {
      * Gets enum.
      *
      * @param code the code
-     *
      * @return the enum
      */
     public static ErrorCodeEnum getEnum(int code) {

@@ -16,22 +16,23 @@ public class ProductController {
 
     /**
      * list请求
+     *
      * @param id
      * @return
      */
     @GetMapping("/list")
     public ObjectResponse selectToList(int id) throws BusinessException {
         System.out.println(id);
-        if(id>0&&id<3){
-            throw new BusinessException(300,"sssssssBusinessExceptionsyyyyyyyuuuuuu");
+        if (id > 0 && id < 3) {
+            throw new BusinessException(300, "sssssssBusinessExceptionsyyyyyyyuuuuuu");
         }
-        if(id>3){
+        if (id > 3) {
             return ResponseUtils.ok("没有查询到数据！");
         }
-        if(id>4){
+        if (id > 4) {
             return ResponseUtils.error("服务器异常");
         }
-       return ResponseUtils.ok(id);
+        return ResponseUtils.ok(id);
     }
 
 }

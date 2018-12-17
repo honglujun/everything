@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 /**
  * 前端系统展示使用
+ *
  * @author win10
  */
 @Getter

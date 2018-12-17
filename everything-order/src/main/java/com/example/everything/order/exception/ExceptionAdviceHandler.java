@@ -16,8 +16,8 @@ public class ExceptionAdviceHandler {
     @ExceptionHandler({Exception.class})
     public ObjectResponse<String> handler(Exception e) {
         ObjectResponse<String> error = new ObjectResponse<>();
-        if(e instanceof BusinessException){
-            error.setCode(((BusinessException)e).getCode());
+        if (e instanceof BusinessException) {
+            error.setCode(((BusinessException) e).getCode());
             error.setMessage(e.getMessage());
         } else {
             error.setCode(ReturnCode.ERROR_CODE);

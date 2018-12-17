@@ -8,6 +8,7 @@ import javax.persistence.Table;
 
 /**
  * 数据库信息交互实体
+ *
  * @author win10
  */
 @Setter

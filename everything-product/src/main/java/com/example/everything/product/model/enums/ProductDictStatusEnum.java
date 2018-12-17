@@ -2,6 +2,7 @@ package com.example.everything.product.model.enums;
 
 /**
  * 枚举
+ *
  * @author win10
  */
 public enum ProductDictStatusEnum {
