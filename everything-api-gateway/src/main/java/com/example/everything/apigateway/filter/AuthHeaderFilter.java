@@ -6,6 +6,7 @@ import com.netflix.zuul.exception.ZuulException;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author win10
  */
+@Component
 public class AuthHeaderFilter extends ZuulFilter {
 
     /**
@@ -54,7 +56,7 @@ public class AuthHeaderFilter extends ZuulFilter {
         //System.out.println(request.getRequestURL()); //http://localhost:9000/apigateway/product/api/v1/product/list
 
         //判断哪些请求需要走过滤器
-        if ("/apigateway/order/api/v1/order/save".equalsIgnoreCase(request.getRequestURI())) {
+        if ("/everythingapigateway/product/api/v1/pro/list".equalsIgnoreCase(request.getRequestURI())) {
             return true;
         } else if ("/apigateway/order/api/v1/order/list".equalsIgnoreCase(request.getRequestURI())) {
             return true;

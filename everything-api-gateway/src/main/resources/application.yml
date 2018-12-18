@@ -18,7 +18,7 @@ eureka:
 zuul:
   routes:
     everything-product: /everythingapigateway/product/**
-    everything-order: /ecoapigateway/order/**
+    everything-order: /everythingapigateway/order/**
   #统一入口为上面的配置，其他入口忽略
   ignored-patterns: /everything-*/**
   #忽略整个服务，对外提供接口

@@ -3,6 +3,7 @@ package com.example.everything.common.response;
 /**
  * @author win10
  */
+@SuppressWarnings("unchecked")
 public class ResponseUtils {
 
     public static ObjectResponse ok() {
