@@ -12,6 +12,8 @@
     <modules>
         <module>everything-api-gateway</module>
         <module>everything-common</module>
+        <module>everything-config</module>
+        <module>everything-demo</module>
         <module>everything-eureka</module>
         <module>everything-product</module>
         <module>everything-order</module>
