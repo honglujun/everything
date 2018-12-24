@@ -3,6 +3,9 @@ package com.example.everything.order.controller;
 import com.example.everything.common.exception.BusinessException;
 import com.example.everything.common.response.ObjectResponse;
 import com.example.everything.common.response.ResponseUtils;
+import com.example.everything.order.feign.ProductClient;
+import com.example.everything.order.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,8 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @author win10
  */
 @RestController
-@RequestMapping("api/v1/pro")
+@RequestMapping("api/v1/order")
 public class OrderController {
+
+    @Autowired
+    private OrderService orderService;
 
     /**
      * list请求
@@ -34,5 +40,23 @@ public class OrderController {
         }
         return ResponseUtils.ok(id);
     }
+
+    /**
+     * 测试feign调用
+     * @param id
+     * @return
+     */
+    @GetMapping("/id")
+    public ObjectResponse selectByid(int id){
+        String s = this.orderService.selectById(id);
+        return ResponseUtils.ok(s);
+    }
+
+    @GetMapping("/ids")
+    public ObjectResponse selectByList(int id){
+        String s = this.orderService.selectByList(id);
+        return ResponseUtils.ok(s);
+    }
+
 
 }

@@ -3,8 +3,11 @@ package com.example.everything.product.controller;
 import com.example.everything.common.exception.BusinessException;
 import com.example.everything.common.response.ObjectResponse;
 import com.example.everything.common.response.ResponseUtils;
+import com.example.everything.product.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -13,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("api/v1/pro")
 public class ProductController {
+    @Autowired
+    private ProductService productService;
 
     /**
      * list请求
@@ -35,4 +40,20 @@ public class ProductController {
         return ResponseUtils.ok(id);
     }
 
+    @GetMapping("/find")
+    public ObjectResponse selectById(@RequestParam(value = "id") int id){
+        String s = this.productService.selectById(id);
+        return ResponseUtils.ok(s);
+    }
+
+    /**
+     * 调用feign查询
+     * @param id
+     * @return
+     */
+    @GetMapping("/id")
+    public ObjectResponse selectByList(@RequestParam(value = "id") int id){
+        String s = this.productService.selectByList(id);
+        return ResponseUtils.ok(s);
+    }
 }
