@@ -14,23 +14,25 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private OrderClient orderClient;
+
     /**
      * 通过id查询书据
+     *
      * @param id
      * @return
      */
     @Override
     public String selectById(int id) {
-        if(id == 3){
+        if (id == 3) {
             return "3";
         } else {
-            return "other";
+            return "other product";
         }
     }
 
     @Override
     public String selectByList(int id) {
 
-        return orderClient.selectByList(id);
+        return this.orderClient.selectByList(id);
     }
 }

@@ -3,6 +3,7 @@ package com.example.everything.product.feign;
 import com.example.everything.product.feign.fallback.OrderClientFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author win10
@@ -17,5 +18,5 @@ public interface OrderClient {
      * @return
      */
     @GetMapping("api/v1/order/ids")
-    String selectByList(int id);
+    String selectByList(@RequestParam(value = "id") int id);
 }

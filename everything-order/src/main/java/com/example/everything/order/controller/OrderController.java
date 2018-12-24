@@ -3,7 +3,6 @@ package com.example.everything.order.controller;
 import com.example.everything.common.exception.BusinessException;
 import com.example.everything.common.response.ObjectResponse;
 import com.example.everything.common.response.ResponseUtils;
-import com.example.everything.order.feign.ProductClient;
 import com.example.everything.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,7 +46,7 @@ public class OrderController {
      * @return
      */
     @GetMapping("/id")
-    public ObjectResponse selectByid(int id){
+    public ObjectResponse selectById(int id){
         String s = this.orderService.selectById(id);
         return ResponseUtils.ok(s);
     }
