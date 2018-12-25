@@ -56,12 +56,14 @@ public class AuthHeaderFilter extends ZuulFilter {
         //System.out.println(request.getRequestURL()); //http://localhost:9000/apigateway/product/api/v1/product/list
 
         //判断哪些请求需要走过滤器
-        if ("/everythingapigateway/product/api/v1/pro/list".equalsIgnoreCase(request.getRequestURI())) {
-            return true;
-        } else if ("/apigateway/order/api/v1/order/list".equalsIgnoreCase(request.getRequestURI())) {
-            return true;
-        } else if ("/apigateway/order/api/v1/order/find".equalsIgnoreCase(request.getRequestURI())) {
-            return true;
+        if ("/everythingapigateway/product/v1/pro/id".equalsIgnoreCase(request.getRequestURI())) {
+            return false;
+        } else if ("/everythingapigateway/order/v1/order/id".equalsIgnoreCase(request.getRequestURI())) {
+            return false;
+        } else if ("/everythingapigateway/product/v1/pro/list".equalsIgnoreCase(request.getRequestURI())) {
+            return false;
+        } else if ("/everythingapigateway/order/v1/order/list".equalsIgnoreCase(request.getRequestURI())) {
+            return false;
         }
         return false;
     }
