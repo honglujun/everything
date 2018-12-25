@@ -24,6 +24,6 @@ feign:
     config:
       default:
         # 请求的连接超时时间
-        connectTimeout: 2000
+        connectTimeout: 200000
         # 请求的处理超时时间
-        readTimeout: 2000
+        readTimeout: 200000

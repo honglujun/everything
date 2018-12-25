@@ -16,7 +16,7 @@ public class OrderServiceImpl implements OrderService {
     private ProductFeignClient productFeignClient;
 
     /**
-     * 通过feign调用别的服务
+     * 通过feign调用product的服务
      *
      * @param id
      * @return

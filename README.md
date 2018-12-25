@@ -43,4 +43,11 @@
 │  │
 │  ├─everything-------------------------------微服务五
 ```
-## 
+##  项目中的结构说明
+```
+feign：
+微服务之间调用用feign。feign中引用了Ribbon可以做到负载均衡。
+微服务中的api包中的controller是给的其他微服务的feign调用的。
+在这个例子中，product微服务的API是给order微服务中的feign包中的接口调用的（接口上的URI跟product中的API包中的URI要一致），feign中的实现是用来做服务降级的。
+
+```
