@@ -1,6 +1,6 @@
 package com.example.everything.order.feign.fallback;
 
-import com.example.everything.order.feign.ProductClient;
+import com.example.everything.order.feign.ProductFeignClient;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Log4j2
 @Component
-public class ProductClientFallback implements ProductClient {
+public class ProductFeignClientFallback implements ProductFeignClient {
 
     @Override
     public String selectById(int id) {

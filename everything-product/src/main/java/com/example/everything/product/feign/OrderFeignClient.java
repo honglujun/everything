@@ -1,6 +1,6 @@
 package com.example.everything.product.feign;
 
-import com.example.everything.product.feign.fallback.OrderClientFallback;
+import com.example.everything.product.feign.fallback.OrderFeignClientFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * @author win10
  */
-@FeignClient(name = "everything-order", fallback = OrderClientFallback.class)
-public interface OrderClient {
+@FeignClient(name = "everything-order", fallback = OrderFeignClientFallback.class)
+public interface OrderFeignClient {
 
     /**
      * 调用Product服务

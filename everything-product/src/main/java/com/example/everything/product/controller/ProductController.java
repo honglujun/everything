@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
  * @author win10
  */
 @RestController
-@RequestMapping("api/v1/pro")
+@RequestMapping("/v1/pro")
 public class ProductController {
+
     @Autowired
     private ProductService productService;
 
@@ -38,12 +39,6 @@ public class ProductController {
             return ResponseUtils.error("服务器异常");
         }
         return ResponseUtils.ok(id);
-    }
-
-    @GetMapping("/find")
-    public ObjectResponse selectById(@RequestParam(value = "id") int id){
-        String s = this.productService.selectById(id);
-        return ResponseUtils.ok(s);
     }
 
     /**

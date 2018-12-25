@@ -1,7 +1,7 @@
 package com.example.everything.product.service.impl;
 
 
-import com.example.everything.product.feign.OrderClient;
+import com.example.everything.product.feign.OrderFeignClient;
 import com.example.everything.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
-    private OrderClient orderClient;
+    private OrderFeignClient orderFeignClient;
 
     /**
      * 通过id查询书据
@@ -33,6 +33,6 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public String selectByList(int id) {
 
-        return this.orderClient.selectByList(id);
+        return this.orderFeignClient.selectByList(id);
     }
 }

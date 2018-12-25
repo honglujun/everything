@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author win10
  */
 @RestController
-@RequestMapping("api/v1/order")
+@RequestMapping("/v1/order")
 public class OrderController {
 
     @Autowired
@@ -48,12 +48,6 @@ public class OrderController {
     @GetMapping("/id")
     public ObjectResponse selectById(int id){
         String s = this.orderService.selectById(id);
-        return ResponseUtils.ok(s);
-    }
-
-    @GetMapping("/ids")
-    public ObjectResponse selectByList(int id){
-        String s = this.orderService.selectByList(id);
         return ResponseUtils.ok(s);
     }
 
