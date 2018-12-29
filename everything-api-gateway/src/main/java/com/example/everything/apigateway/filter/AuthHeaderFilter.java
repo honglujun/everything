@@ -51,18 +51,19 @@ public class AuthHeaderFilter extends ZuulFilter {
     public boolean shouldFilter() {
         RequestContext requestContext = RequestContext.getCurrentContext();
         HttpServletRequest request = requestContext.getRequest();
+        String requestURI = request.getRequestURI();
 
         //System.out.println(request.getRequestURI()); ///apigateway/product/api/v1/product/list
         //System.out.println(request.getRequestURL()); //http://localhost:9000/apigateway/product/api/v1/product/list
 
         //判断哪些请求需要走过滤器
-        if ("/everythingapigateway/product/v1/pro/id".equalsIgnoreCase(request.getRequestURI())) {
+        if ("/everythingapigateway/product/v1/pro/id".equalsIgnoreCase(requestURI)) {
             return false;
-        } else if ("/everythingapigateway/order/v1/order/id".equalsIgnoreCase(request.getRequestURI())) {
+        } else if ("/everythingapigateway/order/v1/order/id".equalsIgnoreCase(requestURI)) {
             return false;
-        } else if ("/everythingapigateway/product/v1/pro/list".equalsIgnoreCase(request.getRequestURI())) {
+        } else if ("/everythingapigateway/product/v1/pro/list".equalsIgnoreCase(requestURI)) {
             return false;
-        } else if ("/everythingapigateway/order/v1/order/list".equalsIgnoreCase(request.getRequestURI())) {
+        } else if ("/everythingapigateway/order/v1/order/list".equalsIgnoreCase(requestURI)) {
             return false;
         }
         return false;

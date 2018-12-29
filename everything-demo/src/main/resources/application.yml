@@ -1,0 +1,6 @@
+server:
+  port: 8395
+spring:
+  application:
+    #全部小写
+    name: everything-demo

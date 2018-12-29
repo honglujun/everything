@@ -27,3 +27,7 @@ feign:
         connectTimeout: 200000
         # 请求的处理超时时间
         readTimeout: 200000
+
+# 日志级别
+logging:
+  level: debug

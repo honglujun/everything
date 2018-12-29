@@ -9,7 +9,7 @@ server:
 eureka:
   instance:
     #服务注册中心实例的主机名
-    hostname: localhost
+    #hostname: localhost
     #在eureka客户端中显示ip地址加端口号
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
     #以IP地址注册到服务中心，相互注册使用IP地址
@@ -17,9 +17,12 @@ eureka:
     #eureka server至上一次收到client的心跳之后，等待下一次心跳的超时时间
     lease-expiration-duration-in-seconds: 4
   client:
+    healthcheck:
+      # 健康检查
+      enabled: true
     #是否向服务注册中心注册自己
-    registerWithEureka: false
+    registerWithEureka: true
     #表示表示是否从其他EurekaServer获取注册信息，默认为true。单节点不需要同步其他的EurekaServer节点的数据
-    fetchRegistry: false
+    fetchRegistry: true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://192.168.253.101:${server.port}/eureka/,http://192.168.253.102:${server.port}/eureka/,http://192.168.253.103:${server.port}/eureka/
