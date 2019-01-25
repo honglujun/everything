@@ -26,3 +26,11 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://192.168.253.101:${server.port}/eureka/,http://192.168.253.102:${server.port}/eureka/,http://192.168.253.103:${server.port}/eureka/
+
+  # 日志级别
+  logging:
+    level:
+      com:
+        example:
+          everything:
+            eureka: debug

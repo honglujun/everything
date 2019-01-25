@@ -29,5 +29,10 @@ feign:
         readTimeout: 200000
 
 # 日志级别
+# 日志级别
 logging:
-  level: debug
+  level:
+    com:
+      example:
+        everything:
+          order: debug

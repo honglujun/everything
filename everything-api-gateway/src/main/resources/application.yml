@@ -23,3 +23,11 @@ zuul:
   ignored-patterns: /everything-*/**
   #忽略整个服务，对外提供接口
   #ignored-services: /everything-*/**
+
+# 日志级别
+logging:
+  level:
+    com:
+      example:
+        everything:
+          gateway: debug

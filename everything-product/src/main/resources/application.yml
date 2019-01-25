@@ -31,4 +31,8 @@ feign:
 
 # 日志级别
 logging:
-  level: debug
+  level:
+    com:
+      example:
+        everything:
+           product: debug
