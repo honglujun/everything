@@ -25,7 +25,10 @@ eureka:
     #表示表示是否从其他EurekaServer获取注册信息，默认为true。单节点不需要同步其他的EurekaServer节点的数据
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://192.168.253.101:${server.port}/eureka/,http://192.168.253.102:${server.port}/eureka/,http://192.168.253.103:${server.port}/eureka/
+      #集群配置
+      #defaultZone: http://192.168.253.101:${server.port}/eureka/,http://192.168.253.102:${server.port}/eureka/,http://192.168.253.103:${server.port}/eureka/
+      #单节点配置
+      defaultZone: http://localhost:${server.port}/eureka/
 
   # 日志级别
   logging:
