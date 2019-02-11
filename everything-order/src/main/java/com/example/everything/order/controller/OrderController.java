@@ -42,11 +42,12 @@ public class OrderController {
 
     /**
      * 测试feign调用
+     *
      * @param id
      * @return
      */
     @GetMapping("/id")
-    public ObjectResponse selectById(int id){
+    public ObjectResponse selectById(int id) {
         String s = this.orderService.selectById(id);
         return ResponseUtils.ok(s);
     }
