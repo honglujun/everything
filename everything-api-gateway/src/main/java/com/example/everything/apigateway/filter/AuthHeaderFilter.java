@@ -53,9 +53,7 @@ public class AuthHeaderFilter extends ZuulFilter {
         HttpServletRequest request = requestContext.getRequest();
         String requestURI = request.getRequestURI();
 
-
-
-
+        // URI与URL的区别
         //System.out.println(request.getRequestURI()); ///apigateway/product/api/v1/product/list
         //System.out.println(request.getRequestURL()); //http://localhost:9000/apigateway/product/api/v1/product/list
 
