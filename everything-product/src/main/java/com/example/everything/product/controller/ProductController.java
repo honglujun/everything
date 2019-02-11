@@ -30,10 +30,10 @@ public class ProductController {
     public ObjectResponse selectToList(int id) throws BusinessException {
         System.out.println(id);
         if (id > 0 && id < 3) {
-            throw new BusinessException(300, "sssssssBusinessExceptionsyyyyyyyuuuuuu");
+            throw new BusinessException(300, "BusinessException");
         }
         if (id > 3) {
-            return ResponseUtils.ok("没有查询到数据！");
+            return ResponseUtils.ok("没有查询到数据！111");
         }
         if (id > 4) {
             return ResponseUtils.error("服务器异常");
@@ -43,11 +43,12 @@ public class ProductController {
 
     /**
      * 调用feign查询
+     *
      * @param id
      * @return
      */
     @GetMapping("/id")
-    public ObjectResponse selectByList(@RequestParam(value = "id") int id){
+    public ObjectResponse selectByList(@RequestParam(value = "id") int id) {
         String s = this.productService.selectByList(id);
         return ResponseUtils.ok(s);
     }
