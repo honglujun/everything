@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * @author win10
  */
-@FeignClient(name = "everything-product" , fallback = ProductFeignClientFallback.class)
+@FeignClient(name = "everything-product", fallback = ProductFeignClientFallback.class)
 public interface ProductFeignClient {
     /**
      * 通过id查询数据
+     *
      * @param id
      * @return
      */

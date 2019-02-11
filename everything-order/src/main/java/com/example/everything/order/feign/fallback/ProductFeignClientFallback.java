@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 针对商品服务，降级处理
+ *
  * @author win10
  */
 @Log4j2

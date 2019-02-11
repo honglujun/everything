@@ -239,13 +239,13 @@ public class SchedulerServiceImpl implements ISchedulerService {
         CronTriggerImpl trigger = new CronTriggerImpl();
         trigger.setCronExpression(cronExpression);
         Date date = trigger.computeFirstFireTime(null);
-        return date != null ? true:date.after(new Date());
+        return date != null ? true : date.after(new Date());
     }
 
     private boolean isValidExpression(final Date startTime) {
         SimpleTriggerImpl trigger = new SimpleTriggerImpl();
         trigger.setStartTime(startTime);
         Date date = trigger.computeFirstFireTime(null);
-        return date != null ? true:date.after(new Date());
+        return date != null ? true : date.after(new Date());
     }
 }

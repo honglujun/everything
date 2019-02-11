@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 对外提供的feign的controller
+ *
  * @author win10
  */
 @RestController
@@ -17,7 +18,7 @@ public class OrderFeignClientApiController {
     private OrderService orderService;
 
     @GetMapping("/ids")
-    public String selectByList(int id){
+    public String selectByList(int id) {
         String s = this.orderService.selectByList(id);
         return s;
     }

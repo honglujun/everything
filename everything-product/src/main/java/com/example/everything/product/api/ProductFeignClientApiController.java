@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 对外提供的feign的controller
+ *
  * @author win10
  */
 @RestController
@@ -19,7 +20,7 @@ public class ProductFeignClientApiController {
     private ProductService productService;
 
     @GetMapping("/find")
-    public String selectById(@RequestParam(value = "id") int id){
+    public String selectById(@RequestParam(value = "id") int id) {
         String s = this.productService.selectById(id);
         return s;
     }

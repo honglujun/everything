@@ -6,6 +6,7 @@ package com.example.everything.product.service;
 public interface ProductService {
     /**
      * 通过id调用查询
+     *
      * @param id
      * @return
      */
@@ -13,6 +14,7 @@ public interface ProductService {
 
     /**
      * 通过id调用查询
+     *
      * @param id
      * @return
      */
