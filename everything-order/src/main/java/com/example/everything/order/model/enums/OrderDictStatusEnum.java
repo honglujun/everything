@@ -33,7 +33,7 @@ public enum OrderDictStatusEnum {
     /**
      * 获取type
      *
-     * @return
+     * @return type
      */
     public int getType() {
         return type;
@@ -42,7 +42,7 @@ public enum OrderDictStatusEnum {
     /**
      * 获取name
      *
-     * @return
+     * @return name
      */
     public String getName() {
         return name;
@@ -52,7 +52,7 @@ public enum OrderDictStatusEnum {
      * 通过type获取name
      *
      * @param type
-     * @return
+     * @return type
      */
     public static String getName(int type) {
         for (OrderDictStatusEnum ele : OrderDictStatusEnum.values()) {
@@ -67,7 +67,7 @@ public enum OrderDictStatusEnum {
      * 通过type获取Enum
      *
      * @param type
-     * @return
+     * @return type
      */
     public static OrderDictStatusEnum getEnum(int type) {
         for (OrderDictStatusEnum ele : OrderDictStatusEnum.values()) {

@@ -61,6 +61,11 @@
             <artifactId>jfreechart</artifactId>
             <version>1.5.0</version>
         </dependency>
+        <!-- 整合elasticsearch -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
