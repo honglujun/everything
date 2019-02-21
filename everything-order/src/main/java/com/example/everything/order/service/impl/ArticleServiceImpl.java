@@ -1,4 +1,4 @@
-package com.example.everything.order.service.impl.chart;
+package com.example.everything.order.service.impl;
 
 import com.example.everything.order.model.domain.Article;
 import com.example.everything.order.repository.ArticleRepository;
