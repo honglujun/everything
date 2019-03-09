@@ -33,7 +33,7 @@
 │  │
 │  ├─everything-product-----------------------微服务一(没想好做什么)
 │  │
-│  ├─everything-order-------------------------微服务二(没想好做什么)
+│  ├─everything-order-------------------------微服务二(使用了elasticsearch搜索，做了一个demo。还用了jfreechart做了图表生成)
 │  │
 │  ├─everything-demo--------------------------微服务demo项目，没什么用，就是一些依赖在pom文件里面可以直接copy
 │  │

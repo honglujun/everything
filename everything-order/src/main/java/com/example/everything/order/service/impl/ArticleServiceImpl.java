@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
+ * elasticsearch的增删改查
+ *
  * @author win10
  */
 @Service
@@ -23,7 +25,7 @@ public class ArticleServiceImpl implements IArticleService {
         article.setContent("@author win10");
         article.setId(Long.valueOf(str));
         article.setPv(2);
-        article.setSummary("搜索框架整合"+str);
+        article.setSummary("搜索框架整合" + str);
         article.setTitle("这是一个测试类");
         return this.articleRepository.save(article);
     }
