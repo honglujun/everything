@@ -1,0 +1,3 @@
+# 设置上传路径
+url-config:
+  url: D:/fileUpload/

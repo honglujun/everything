@@ -1,5 +1,6 @@
 package com.example.everything.demo.service.impl;
 
+import com.example.everything.demo.config.UrlConfig;
 import com.example.everything.demo.service.ISchedulerService;
 import org.quartz.CronExpression;
 import org.quartz.JobDetail;
@@ -9,6 +10,8 @@ import org.quartz.TriggerKey;
 import org.quartz.impl.triggers.CronTriggerImpl;
 import org.quartz.impl.triggers.SimpleTriggerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -17,6 +20,8 @@ import java.util.UUID;
 /**
  * @author win10
  */
+@Service
+@EnableConfigurationProperties(UrlConfig.class)
 public class SchedulerServiceImpl implements ISchedulerService {
 
     private static final String NULLSTRING = null;
@@ -26,6 +31,12 @@ public class SchedulerServiceImpl implements ISchedulerService {
     @Autowired
     private JobDetail jobDetail;
 
+    @Autowired
+    private UrlConfig urlConfig;
+
+    public void selectFrom(){
+        String url = urlConfig.getUrl();
+    }
     @Override
     public void schedule(String cronExpression) {
         schedule(NULLSTRING, cronExpression);

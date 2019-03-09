@@ -22,3 +22,4 @@ spring:
         path:
           # 存储索引的位置
           home: /data/project/target/elastic
+
