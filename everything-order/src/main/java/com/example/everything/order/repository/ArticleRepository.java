@@ -5,7 +5,7 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 import org.springframework.stereotype.Component;
 
 /**
- * 继承Elasticsearch的赠删改查的接口
+ * 继承ElasticsearchRepository的赠删改查的接口
  *
  * @author win10
  */
