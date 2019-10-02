@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ol</title>
+  <link href="./ol.css" rel="stylesheet">
+  <script src="./ol.js"></script>
+  <script src="./jquery-3.3.1.min.js"></script>
+
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <script>
+    var beijing = ol.proj.fromLonLat([103.51885, 30.58886]);
+    var map = new ol.Map({
+      target: 'map',
+      // layers: [
+      //   new ol.layer.Tile({
+      //     source: new ol.source.OSM()
+      //   })
+      // ],
+      view: new ol.View({
+        center: beijing,
+        zoom: 8
+      })
+    });
+    // 卫星地图
+    var baseSource1 = new ol.source.TileWMS({
+      url: 'http://172.31.128.52:8888/geoserver/cite/wms',
+      params: {
+        // http://localhost:8888/geoserver/cite/wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image%2Fjpeg&TRANSPARENT=true&STYLES&LAYERS=cite%3Ageotiff_coverage&exceptions=application%2Fvnd.ogc.se_inimage&SRS=EPSG%3A32648&WIDTH=769&HEIGHT=453&BBOX=261427.4021878613%2C3356791.979319311%2C378703.246159986%2C3425966.4029122437
+        'SERVICE': 'WMS',
+        'VERSION': '1.1.1',
+        'REQUEST': 'GetMap',
+        'FORMAT': 'image/jpeg',
+        'TRANSPARENT': true,
+        'STYLES': '',
+        'LAYERS': 'cite:plough_base',
+        'exceptions': 'application/vnd.ogc.se_inimage',
+        'SRS': 'EPSG:32648',
+        'WIDTH': 769,
+        'HEIGHT': 453,
+        // 'BBOX': [261427.4021878613, 3356791.979319311, 378703.246159986, 3425966.4029122437]
+        // 'LAYERS': 'tiger-ny',
+        'TILED': true
+      },
+      serverType: 'geoserver'
+    });
+
+    var baseLayer1 = new ol.layer.Tile({
+      source: baseSource1
+    });
+
+    map.addLayer(baseLayer1);
+    // 矢量图
+    var coverSource = new ol.source.TileWMS({
+      url: 'http://172.31.128.52:8888/geoserver/cite/wms',
+      params: {
+        // ?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&STYLES&LAYERS=cite%3Ayoucai&exceptions=application%2Fvnd.ogc.se_inimage&SRS=EPSG%3A32648&WIDTH=768&HEIGHT=509&BBOX=338656.9049077858%2C3379182.045233911%2C367975.865900817%2C3398613.492037886
+        'SERVICE': 'WMS',
+        'VERSION': '1.1.1',
+        'REQUEST': 'GetMap',
+        'FORMAT': 'image/png',
+        'TRANSPARENT': true,
+        'STYLES': 'green',
+        'LAYERS': 'cite:dayi_plough',
+        'exceptions': 'application/vnd.ogc.se_inimage',
+        'SRS': 'EPSG:32648',
+        'WIDTH': 768,
+        'HEIGHT': 509,
+        // 'BBOX': [338656.9049077858, 3379182.045233911, 367975.865900817, 3398613.492037886]
+        // 'LAYERS': 'tiger-ny',
+        'TILED': true
+      },
+      serverType: 'geoserver'
+    });
+
+    var coverLayer = new ol.layer.Tile({
+      source: coverSource
+    });
+
+    map.addLayer(coverLayer);
+    //实例化矢量点要素，通过矢量图层添加到地图容器中
+    //这样就实现了预先加载图文标注
+    var iconFeature = new ol.Feature({
+      geometry: new ol.geom.Point(beijing),
+      name: '北京市',                         //名称属性
+      population: 2115                       //人口数（万）
+    });
+    //设置点要素样式
+    iconFeature.setStyle(createLabelStyle(iconFeature));
+    //矢量标注的数据源
+    var vectorSource = new ol.source.Vector({
+      features: [iconFeature]
+    });
+    //矢量标注图层
+    var vectorLayer = new ol.layer.Vector({
+      source: vectorSource
+    });
+    map.addLayer(vectorLayer);
+
+    //矢量标注样式设置函数，设置image为图标ol.style.Icon
+    function createLabelStyle(feature) {
+      console.log(feature);
+      return new ol.style.Style({
+        image: new ol.style.Icon({
+          anchor: [0.5, 60],              //锚点
+          anchorOrigin: 'top-right',       //锚点源
+          anchorXUnits: 'fraction',       //锚点X值单位
+          anchorYUnits: 'pixels',         //锚点Y值单位
+          offsetOrigin: 'top-right',      //偏移原点
+          opacity: 0.75,
+          src: './image/boy.png'  //图标的URL
+        }),
+        text: new ol.style.Text({
+          textAlign: 'center',            //位置
+          textBaseline: 'middle',         //基准线
+          font: 'normal 14px 微软雅黑',    //文字样式
+          text: feature.get('name'),      //文本内容
+          fill: new ol.style.Fill({       //文本填充样式（即文字颜色)
+            color: '#000'
+          }),
+          stroke: new ol.style.Stroke({
+            color: '#F00',
+            width: 2
+          })
+        })
+      });
+    }
+
+    map.on('click', function (evt) {
+      var coordinate = evt.coordinate;
+      console.log('coordinate', coordinate);      //鼠标单击点的坐标
+      //新建一个要素ol.Feature
+      var newFeature = new ol.Feature({
+        geometry: new ol.geom.Point(coordinate),  //几何信息
+        name: '标注点'
+      });
+      newFeature.setStyle(createLabelStyle(newFeature));      //设置要素样式
+      vectorSource.addFeature(newFeature);
+    });
+  </script>
+</body>
+
+</html>
