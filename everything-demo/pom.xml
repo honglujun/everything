@@ -16,6 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <fescar.version>0.4.1</fescar.version>
         <spring-cloud.version>Finchley.SR2</spring-cloud.version>
     </properties>
 
@@ -144,6 +145,39 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
         </dependency>
+
+
+        <dependency>
+            <groupId>com.alibaba.fescar</groupId>
+            <artifactId>fescar-spring</artifactId>
+            <version>${fescar.version}</version>
+        </dependency>
+
+        <!--dependency for Apache Dubbo-->
+        <dependency>
+            <groupId>com.alibaba.fescar</groupId>
+            <artifactId>fescar-dubbo</artifactId>
+            <version>${fescar.version}</version>
+        </dependency>
+
+        <!--dependency for Alibaba Dubbo-->
+        <dependency>
+            <groupId>com.alibaba.fescar</groupId>
+            <artifactId>fescar-dubbo-alibaba</artifactId>
+            <version>${fescar.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>4.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>4.1.0</version>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>

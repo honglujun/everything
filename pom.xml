@@ -17,6 +17,7 @@
         <module>everything-eureka</module>
         <module>everything-product</module>
         <module>everything-order</module>
+        <module>everything-gis</module>
     </modules>
 
 

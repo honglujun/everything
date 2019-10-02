@@ -15,6 +15,7 @@ import java.util.LinkedHashMap;
 
 /**
  * 柱状图
+ *
  * @author win10
  */
 public class ConBarChart {

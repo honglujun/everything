@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 @Setter
 @Getter
-@Document(indexName = "database",type = "tableName")
+@Document(indexName = "database", type = "tableName")
 public class Article implements Serializable {
 
     private static final long serialVersionUID = -2169437204303938189L;
