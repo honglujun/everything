@@ -6,6 +6,7 @@ spring:
     username: root
     password: 123456
   application:
+    name: everything-order
   data:
     elasticsearch:
       # elasticsearch集群名称
@@ -24,7 +25,7 @@ spring:
         path:
           # 存储索引的位置
           home: /data/project/target/elastic
-    name: everything-order
+
 
 server:
   port: 8082
